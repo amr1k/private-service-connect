@@ -35,13 +35,13 @@ In this usecase we will explore the use of PSC to connect across multiple projec
 
 **NOTE: IN THIS USECASE WE WILL FOCUS ON PRIVATE SERVICE CONNECT BETWEEN TWO USER OWNED PROJECTS**
 
-## Architecture
+# Architecture
 
 ![Image](./images/architecture.png "PSC Architecture")
 
 Private Service Connect is implemented by using software-defined networking (SDN) from Google Cloud called Andromeda (PDF). Andromeda is the distributed control plane and data plane for Google Cloud networking that enables networking for Virtual Private Cloud (VPC) networks. The Andromeda networking fabric processes packets on the physical servers that host VMs. As a result, the data plane is fully distributed and has no centralized bottlenecks on intermediate proxies or appliances.
 
-### Andromeda Architecture
+## Andromeda Architecture
 ![Image](./images/andromeda.png "Andromeda")
 
 From a logical perspective, there are consumer Private Service Connect endpoints and producer load balancers. However, from a physical perspective traffic goes directly from the physical server that hosts the client VM to the physical server that hosts the producer load balancer VM.
@@ -65,9 +65,9 @@ You may refer to the following documentation for configuration:
 
 **NOTE: IN THIS SETUP WE ARE FOCUSING ON PUBLISHED SERVICE BUT THE SAME CONCEPTS CAN BE ADOPTED FOR OTHER USECASES**
 
-## Packet Captures
+# Packet Captures
 
-### Traffic Direction: Test VM ==> www
+## Traffic Direction: Test VM ==> www
 
 **Capture on the Test VM**:
 ```
@@ -84,7 +84,7 @@ IP 10.120.0.5.54012 > 10.164.0.32.80: Flags [S], seq 3892719157, win 65535, opti
 
 NOTE: **10.120.0.0/24** IS THE PROXY-ONLY SUBNET (TRAFFIC SOURCED FROM ILB)
 
-### Traffic Direction: www ==> Test VM
+## Traffic Direction: www ==> Test VM
 
 **Capture on the Test VM**:
 ```
@@ -100,6 +100,6 @@ IP 10.164.0.32.80 > 10.120.0.3.42258: Flags [F.], seq 434, ack 160, win 505, opt
 
 NOTE: **10.120.0.0/24** IS THE PROXY-ONLY SUBNET (TRAFFIC DESTAINED FROM ILB PROXY [ENVOY])
 
-## References:
+# References:
 - [Internal Application Load Balancer Architecture](https://cloud.google.com/load-balancing/docs/l7-internal)
 
