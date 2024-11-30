@@ -100,6 +100,6 @@ IP 10.164.0.32.80 > 10.120.0.3.42258: Flags [F.], seq 434, ack 160, win 505, opt
 
 NOTE: **10.120.0.0/24** IS THE PROXY-ONLY SUBNET (TRAFFIC DESTAINED FROM ILB PROXY [ENVOY])
 
-References:
+## References:
 - [Internal Application Load Balancer Architecture](https://cloud.google.com/load-balancing/docs/l7-internal)
 
